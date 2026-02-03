@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>¿Quieres ser mi San Valentín?</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Great+Vibes&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --pink:#f7c6d0;
+      --pink-soft:#fdecef;
+      --red:#c0392b;
+      --text:#4a4a4a;
+    }
+    *{box-sizing:border-box;margin:0;padding:0}
+    body{
+      font-family:'Poppins',sans-serif;
+      background:var(--pink-soft);
+      color:var(--text);
+    }
+    .container{
+      max-width:900px;
+      margin:auto;
+      background:#fff;
+      position: relative ;
+      z-index: 5;
+    }
+    section{
+      padding:50px 30px;
+      border-bottom:1px dashed #f0b6c1;
+      text-align:center;
+    }
+    h1,h2{
+      font-family:'Playfair Display',serif;
+    }
+    .script{
+      font-family:'Great Vibes',cursive;
+    }
+    /* HERO */
+    .hero{
+      background:var(--pink);
+    }
+    .hero h1{
+      font-size:48px;
+      margin-bottom:10px;
+    }
+    .hero .script{
+      font-size:64px;
+      color:var(--red);
+    }
+    /* CARTA */
+    .letter{
+      font-family:'Playfair Display',serif;
+      font-size:15px;
+      line-height:1.9;
+    }
+    .photo{
+      margin-left:25px;
+      width:260px;
+      height:260px;
+      border:2px solid #e7a3b1;
+      padding:6px;
+      background:#fff;
+    }
+    .photo img{width:100%;height:100%;object-fit:cover}
+    .news-box{
+      padding:18px;
+      background:#fffafc;
+      position:relative;
+    }
+    .news-box::before{
+content:"Nuestro Primer San Valentin";
+position:absolute;
+top:-12px;
+left:20px;
+background:#fffafc;
+padding:0 10px;
+font-family:'Playfair Display',serif;
+font-size:14px;
+letter-spacing:2px;
+}
+.btn-mision{
+margin-top:20px;
+display:inline-block;
+padding:10px 18px;
+border:2px solid var(--red);
+color:var(--red);
+font-weight:600;
+cursor:pointer;
+transition:all .3s ease;
+}
+.btn-mision:hover{
+background:var(--red);
+color:#fff;
+}
+.surprise{
+display:none;
+margin-top:20px;
+font-family:'Great Vibes',cursive;
+font-size:34px;
+color:var(--red);
+text-align:center;
+}
+    .reasons ol{
+      max-width:600px;
+      margin:auto;
+      text-align:left;
+      font-size:16px;
+      line-height:1.8;
+    }
+    .reasons li{margin-bottom:12px}
+        /* VALES - ESTILO NUEVO */
+    .vouchers{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+      gap:25px;
+      margin-top:30px;
+    }
+    .voucher{
+      border:2px dashed #e7a3b1;
+      padding:25px 15px;
+      background:#fffafc;
+      text-align:center;
+      border-radius:8px;
+      transition: transform 0.3s ease;
+    }
+    .voucher:hover{
+      transform:translateY(-5px);
+    }
+    .voucher-emoji{
+      font-size:42px;
+      margin-bottom:15px;
+    }
+    .voucher-subtitle{
+      font-size:14px;
+      color:#666;
+      margin-bottom:5px;
+      letter-spacing:1px;
+    }
+    .voucher-title{
+      font-size:24px;
+      font-weight:700;
+      color:var(--red);
+    }
+     /* NUEVA SECCIÓN FINAL - COMO LA IMAGEN */
+    .final{
+      background:var(--pink);
+    }
+    
+    .analisis-texto {
+      max-width: 750px;
+      margin: 0 auto 40px;
+      font-family: 'Playfair Display', serif;
+      font-size: 18px;
+      line-height: 1.6;
+      color: #4a4a4a;
+      text-align: center;
+    }
+    
+    .pregunta-final {
+      font-family: 'Playfair Display', serif;
+      font-size: 42px;
+      color: #c0392b;
+      margin: 30px 0;
+    }
+    
+    .pregunta-final span {
+      font-family: 'Great Vibes', cursive;
+      font-size: 52px;
+      display: block;
+      margin-top: 10px;
+    }
+    
+    .opciones-final {
+      max-width: 500px;
+      margin: 40px auto;
+      text-align: left;
+      background: #fffafc;
+      padding: 30px;
+      border-radius: 10px;
+      border: 2px dashed #e7a3b1;
+    }
+    
+    .opciones-final h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 22px;
+      color: #c0392b;
+      margin-bottom: 25px;
+      text-align: center;
+    }
+    
+    .opcion-item {
+      display: flex;
+      align-items: center;
+      margin-bottom: 20px;
+      padding: 15px;
+      background: #fff;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      border: 1px solid #f7c6d0;
+    }
+    
+    .opcion-item:hover {
+      background: #fdecef;
+      transform: translateX(5px);
+    }
+    
+    .opcion-item input {
+      margin-right: 15px;
+      width: 20px;
+      height: 20px;
+      accent-color: #c0392b;
+    }
+    
+    .opcion-item label {
+      font-size: 18px;
+      font-weight: 500;
+      color: #4a4a4a;
+      cursor: pointer;
+      flex: 1;
+    }
+ 
+    .galeria-fotos {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 15px;
+      max-width: 800px;
+      margin: 40px auto;
+      
+    }
+    
+    .foto-galeria {
+      width: 100%;
+  border-radius: 10px;
+  overflow: hidden;
+  border:2px solid #e7a3b1;
+  padding:6px;
+  background:#fff;
+  text-align:center;
+    }
+    
+    .foto-galeria img {
+      width: 100%;
+  height: 240px;
+  object-fit: cover;
+  border-radius:6px;
+    }
+    .love-text{
+  margin-top:8px;
+  font-family:'Cormorant Garamond', serif;
+  font-size:24px;
+  color:#c0392b;
+}
+    .cursiva {
+      font-style: italic;
+    }
+    
+    @media(max-width:600px){
+      .hero h1{font-size:36px}
+      .hero .script{font-size:48px}
+      .galeria-fotos {
+        grid-template-columns: 1fr;
+      }
+      .estadisticas {
+        flex-direction: column;
+        gap: 20px;
+      }
+    }
+    @media(max-width:600px){
+  .hero h1{font-size:36px}
+  .hero .script{font-size:48px}
+  .galeria-fotos {
+    grid-template-columns: 1fr;
+  }
+  .estadisticas {
+    flex-direction: column;
+    gap: 20px;
+  }
+}
+
+/* ❤️ Corazones laterales */
+.floating-layer{
+  position: fixed;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.floating-item{
+  position: absolute;
+  bottom: -40px;
+  opacity: 0.6;
+  animation: floatUp linear infinite;
+}
+
+.petal{
+  color: #f3a6b8;
+}
+
+.heart{
+  color: #e25572;
+}
+
+@keyframes floatUp {
+  from {
+    transform: translateY(0) translateX(0) rotate(0deg);
+    opacity: 0;
+  }
+  10% { opacity: 0.6; }
+  to {
+    transform: translateY(-120vh) translateX(40px) rotate(360deg);
+    opacity: 0;
+  }
+}
+
+  </style>
+  
+</head>
+<body>
+<audio id="bg-music" loop>
+  <source src="MUSICA/Those_Eyes.mp3" type="audio/mpeg">
+  Tu navegador no soporta audio.
+</audio>
+
+
+<div class="floating-layer"></div>
+  <div class="container">
+    <section class="hero">
+  <h1 style="letter-spacing:2px;" class="cursiva">Puedo Ser Yo?</h1>
+  <div class="script" style="margin-top:10px;">Tu SanValentine?</div>
+
+  <div style="margin-top:35px;display:grid;grid-template-columns:1fr 1fr;gap:30px;align-items:center;">
+    
+    <div>
+      <h2 style="font-size:20px;letter-spacing:1px;margin-bottom:15px;">¡SIEMPRE FUISTE TÚ!</h2>
+      <div class="photo" style="width:100%;max-width:260px;height:260px;margin-left:75px;">
+        <img src="FOTO/kyl10.jpg" alt="Nuestra foto">
+      </div>
+    </div>
+
+    <div class="letter news-box" style="text-align:left;">
+      Después de una exhaustiva espera entre tantos años, Por fin llegó el momento de tener nuestro primer san valentin con mi <b>perfecta esposa</b> para celebrar el 14 de febrero: <b>¡TÚ y Yo Por Fin!</b><br><br>
+      Según me indica(<i>mi corazón y todo mi ser</i>), que eres la persona ideal para vivir un <b>San Valentín y mi el resto de mi vida</b> lleno de amor, risas y momentos inolvidables, que poco a poco iremos creciendo esta familia, <b>Te Amo y Te amaré por el resto de mi vida</b> .
+      <div class="btn-mision" onclick="mostrarSorpresa()">¿ACEPTAS LA MISIÓN DE SAN VALENTÍN?</div>
+      <div class="surprise" id="sorpresa">💖 Sabía que dirías que sí 💖</div>
+    </div>
+
+  </div>
+</section>
+
+
+       <!-- RAZONES -->
+    <section class="reasons">
+      <h2 style="color: #c0392b; font-size: 32px; margin-bottom: 25px; text-align: left; max-width: 750px; margin-left: auto; margin-right: auto; padding-left: 20px; font-family:'Great Vibes',cursive;">
+        5 Razones por la que eres el amor Amor de mi vida
+      </h2>
+      
+      <ol style="max-width: 750px; margin: auto; text-align: left; font-size: 16px; line-height: 1.8; padding-left: 40px;">
+        <li style="margin-bottom: 15px;">
+          <strong>Tienes un alma muy hermosa </strong>
+        </li>
+        <li style="margin-bottom: 15px;">
+          <strong>Amas con mucha intensidad</strong>
+        </li>
+        <li style="margin-bottom: 15px;">
+          <strong>Haces que mi corazón se sienta muy seguro a tu lado</strong>
+        </li>
+        <li style="margin-bottom: 15px;">
+          <strong>Eres perfecta en todos los aspectos</strong>
+        </li>
+        <li style="margin-bottom: 20px;">
+          <strong>No imagino a nadie más a mi lado en este San Valentín ni en mi vida.</strong>
+        </li>
+      </ol>
+  
+    </section>
+
+           <!-- VALES -->
+    <section>
+      <h2 style="margin-bottom: 40px; font-size: 32px; color: #c0392b;">Vales Especiales</h2>
+      <div class="vouchers">
+        <div class="voucher">
+          <div class="voucher-emoji">💌</div>
+          <div class="voucher-subtitle">Vale por una</div>
+          <div class="voucher-title">Cita</div>
+        </div>
+        
+        <div class="voucher">
+          <div class="voucher-emoji">🍽️</div>
+          <div class="voucher-subtitle">Vale por una</div>
+          <div class="voucher-title">Cena</div>
+        </div>
+        
+        <div class="voucher">
+          <div class="voucher-emoji">💋</div>
+          <div class="voucher-subtitle">Vale por</div>
+          <div class="voucher-title">Muchos Besitos</div>
+        </div>
+      </div>
+    </section>
+
+     <!-- SECCIÓN FINAL - COMO LA IMAGEN -->
+    <section class="final">
+      <div class="analisis-texto">
+        Después de analizar los hechos, recopilar datos y comprobar la química innegable entre nosotros... Aunque a veces me hagas renegar jiji
+      </div>
+      
+      <div class="pregunta-final">
+        ¿Quieres ser mi<br>
+        <span>San Valentín?</span>
+      </div>
+      
+      <div class="opciones-final">
+        <h3>Marca tu respuesta:</h3>
+        
+        <div class="opcion-item">
+          <input type="checkbox" id="opcion1">
+          <label for="opcion1">Mil veces Sí</label>
+        </div>
+        
+        <div class="opcion-item">
+          <input type="checkbox" id="opcion2">
+          <label for="opcion2">OBVIO, me muero de la emoción</label>
+        </div>
+        
+        <div class="opcion-item">
+          <input type="checkbox" id="opcion3">
+          <label for="opcion3">Sí, con final feliz 💖</label>
+        </div>
+      </div>
+      </section>
+
+      <section class="reasons">
+       <div class="galeria-fotos">
+        <div class="foto-galeria">
+       <img src="FOTO/kyl12.jpg" alt="Foto 1 de nosotros">
+        <p class="love-text">I LOVE YOU</p>
+        </div>
+        <div class="foto-galeria">
+          <img src="FOTO/kyl4.jpg" alt="Foto 2 de nosotros">
+          <p class="love-text">I LOVE YOU</p>
+        </div>
+        <div class="foto-galeria">
+          <img src="FOTO/kyl3.jpg" alt="Foto 3 de nosotros">
+          <p class="love-text">I LOVE YOU</p>
+        </div>
+      </div>
+      </section>
+    <section class="reasons">
+    <footer>
+      Hecho con ❤️ para mi esposa preciosa
+    </footer>
+    <footer>
+      <p class="footer-credit">Desarrollado por Leonardo Fernandez Contreras Web Development © 2026</p>
+    </footer>
+    </section>
+  </div>
+ <script>
+  const layer = document.querySelector('.floating-layer');
+  const symbols = ['❤️','🌸','💮','🌷','💖','🍃'];
+
+  setInterval(() => {
+    for(let i = 0; i < 3; i++){ // MÁS CANTIDAD
+      const item = document.createElement('div');
+      item.className = 'floating-item ' + (Math.random() > 0.5 ? 'heart' : 'petal');
+      item.innerHTML = symbols[Math.floor(Math.random() * symbols.length)];
+
+      item.style.left = Math.random() * 100 + 'vw';
+      item.style.fontSize = (18 + Math.random() * 22) + 'px';
+      item.style.animationDuration = (22 + Math.random() * 15) + 's';
+
+      layer.appendChild(item);
+
+      setTimeout(() => item.remove(), 40000);
+    }
+  }, 800); // MÁS DENSIDAD
+</script>
+
+<script>
+  const music = document.getElementById('bg-music');
+  let musicStarted = false;
+
+  document.addEventListener('click', () => {
+    if (!musicStarted) {
+      music.volume = 0.4; // volumen suave
+      music.play();
+      musicStarted = true;
+    }
+  });
+</script>
+
+</body>
+</html>
